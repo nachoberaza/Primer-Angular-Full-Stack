@@ -24,3 +24,29 @@ Este seguimiento es desde la seccion 6 paso 59:
     Step 63 (Update service backend):
         En el backend se creo un metodo para devolver todos los detalles de una tarea indicada mediante
         el Id
+
+
+     Step 65 (Put en el backend):
+	Creo el metodo saveTodo mapeado con el PUT, en donde eliminaba el Todo que tuviera el mismo Id y agregaba el modificado
+
+     Step 72 (Spring Security):
+	En este metodo se agrego una nueva dependencia para la seguridad la cual se llama "spring-boot-starter-security"
+
+	Para configurar el usuario y la contraseña de spring:
+		-agregar en el archivo application.properties lo siguiente:
+			
+			spring.security.user.name=<nombre de usuario>
+			spring.security.user.password=<password>
+
+
+		-Entrar en la clase "webSecurityConfigureAdapter.class" (en el metodo configure(HttpSecurity) ):
+			copiamos el contenido de esa funcion para pegarlo en una nueva clase que creamos en nuestro proyecto, preferentemente llamada SpringSecurityConfigurationBasicAuth,
+			en la cual vamos a extender a "WebSecurityConfigurerAdapter" .  Luego agregamos a la clase las notaciones:
+			
+			"@Configuration"  y  "@EnableWebSecurity"
+			
+			Y al metodo que pegamos le agregamos "@Override"  y le agregamos ".csrf().disable()", ".antMatchers(HttpMethod.OPTIONS,"/**").permitAll()".
+			Por ultimo, se puede comentar ".formLogin().and()"
+	 
+
+			

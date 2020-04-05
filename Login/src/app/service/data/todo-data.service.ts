@@ -21,7 +21,17 @@ export class TodoDataService {
   }
 
   retrieveTodo(username,id){
-    return this.http.get<Todo>(`http://${this.host}:8080/<Resto de la url>`);
+    return this.http.get<Todo>(`http://${this.host}:8080/users/${username}/todos/${id}`);
   }
+
+  updateTodo(username,id,todo){
+    return this.http.put(`http://${this.host}:8080/users/${username}/todos/${id}`,todo);
+  }  
+  
+  createTodo(username,todo){
+    return this.http.post(`http://${this.host}:8080/users/${username}/todos`,todo);
+  }
+
+
   
 }
