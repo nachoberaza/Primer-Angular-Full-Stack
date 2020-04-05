@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/hello world/")
+@RequestMapping("/hello-world")
 //CrossOrigin(origins="http://localhost:4200")
 
 public class HelloWorldController {
@@ -18,7 +18,7 @@ public class HelloWorldController {
 	
 	//-------------------- Method - "Hello World"
 	
-	@RequestMapping(method=RequestMethod.GET,path="/hello world")
+	@RequestMapping(method=RequestMethod.GET,path="/hello-world")
 	public String helloWorld(){
 		return "Hello World";
 	}

@@ -9,13 +9,19 @@ export class TodoDataService {
 
   private host:string='192.168.0.111';
 
-  private http:HttpClient;
+  constructor(private http:HttpClient) { }
 
-  constructor() { }
+  deleteTodo(username,id){
+    return this.http.delete(`http://${this.host}:8080/<Resto de la url>`);
+
+  }
 
   retrieveAllTodos(username){  
-    return this.http.get<Todo[]>(`http://${this.host}$:8080/users/${username}/todos`);  
-  
+    return this.http.get<Todo[]>(`http://${this.host}:8080/users/${username}/todos`);  
+  }
+
+  retrieveTodo(username,id){
+    return this.http.get<Todo>(`http://${this.host}:8080/<Resto de la url>`);
   }
   
 }

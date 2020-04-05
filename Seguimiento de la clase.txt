@@ -1,0 +1,26 @@
+Este seguimiento es desde la seccion 6 paso 59:
+
+
+    Step 59(Delete en backend):
+
+    Para eso creo el metodo Delete en el back en el cual se buscaba byId y 
+    se eliminaba el elemento del array estatico.
+
+--->    En el caso de que pudiera eliminar devuelve un ResponseEntity que primeramente va a 
+    estar vacia. Y en caso contrario, devuelve un Not Found: ResponseEntity.notFound().build() => De esta manera devuelve un error de not found
+
+    Luego creo el metodo update y 
+    
+
+    Step 61 (Delete en Frontend):
+        En este paso vemos que es el origin. En el cual permite que se pueda consultar la api 
+        desde el lugar que se especifica. Por ejemplo:
+
+---->   @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+
+        Esta cabecera permite que se consulte la api desde cualquier lado y aclarandole los metodos.
+
+
+    Step 63 (Update service backend):
+        En el backend se creo un metodo para devolver todos los detalles de una tarea indicada mediante
+        el Id

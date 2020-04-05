@@ -7,16 +7,17 @@ import { HelloWorldBean } from 'src/app/bienvenido/HelloWorldBean';
 })
 export class WelcomeDataService {
 
-  private http:HttpClient;
+  private host:string='192.168.0.111'
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   executeHelloWorldBeanService(){
-    return this.http.get<HelloWorldBean>('http://localhost:8080/hello world-bean');  
+    return this.http.get<HelloWorldBean>(`http://${this.host}:8080/hello world-bean`);  
   }
 
-  executeHelloWorldServiceWithVariable(name){  
-    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);  
+  executeHelloWorldServiceWithPathVariable(name){  
+    return this.http.get<HelloWorldBean>(`http://${this.host}:8080/hello-world/path-variable/${name}`)
+    
   }
   
 }

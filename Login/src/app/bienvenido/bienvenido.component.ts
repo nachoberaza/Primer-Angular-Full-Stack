@@ -17,9 +17,9 @@ export class BienvenidoComponent implements OnInit {
 
   getWelcomeMessageWithParameters(){
 
-    this.service.executeHelloWorldServiceWithVariable(this.name).subscribe(
-      response=>this.handleSuccessfullResponse(response.message),
-      error=>this.handleErrorResponse(error)
+    this.service.executeHelloWorldServiceWithPathVariable(this.name).subscribe(
+      response => this.handleSuccessfullResponse(response),
+      error => this.handleErrorResponse(error)
     );
 
     console.log("Se termino de ejecutar getWelcomeMessage");
